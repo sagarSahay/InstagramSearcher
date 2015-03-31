@@ -17,6 +17,14 @@
             <input name="queryValue" class="col-md-4" type="text" ng-model="main.keyword" required />
             <input class="col-md-4" type="submit" id="submit" value="Submit" />
         </div>
+            <div class="row">
+                <h2>We found {{results.length}} results for keyword {{keyword}}</h2>
+            </div>
+            <div class="row">
+                <div ng-repeat="result in results">
+
+                </div>
+            </div>
         </form>
         <div ng-repeat="result in main.data">
             <iframe ng-src="{{main.trustSrc(result.link+'&output=embed')}}" frameborder="0" width="480" height="390">

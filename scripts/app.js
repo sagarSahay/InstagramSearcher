@@ -30,6 +30,8 @@ angular.module('InstagramApp',[])
                     callback:"JSON_CALLBACK",
                     client_id:clientId
                 };
+            var defer =$q.defer();
+
                 $http({
                     method: 'JSONP',
                     url: url,
@@ -39,8 +41,9 @@ angular.module('InstagramApp',[])
                     deferred.resolve(result);
                 }).error(function(error) {
                     deferred.reject(error) ;
-                })
+            })
                 return deferred.promise;
             }
         }
+
     });
