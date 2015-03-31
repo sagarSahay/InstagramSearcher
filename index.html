@@ -7,19 +7,22 @@
     <script type="text/javascript" src="./scripts/app.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
-<body ng-controller="InstagramController">
+<body ng-controller="InstagramController as main">
     <div class="container">
         <div class="row">
-
-                <img src="./images/ng-instagram.png" alt="Instagram Searcher">
-
+            <img src="./images/ng-instagram.png" alt="Instagram Searcher">
         </div>
-        <form name="myForm" ng-submit="submit()">
+        <form name="myForm" ng-submit="main.submit()">
         <div class="row">
-            <input name="queryValue" class="col-md-4" type="text" ng-model="keyword" required />
+            <input name="queryValue" class="col-md-4" type="text" ng-model="main.keyword" required />
             <input class="col-md-4" type="submit" id="submit" value="Submit" />
         </div>
         </form>
+        <div ng-repeat="result in main.data">
+            <iframe ng-src="{{main.trustSrc(result.link+'&output=embed')}}" frameborder="0" width="480" height="390">
+
+            </iframe>
+        </div>
     </div>
 </body>
 </html>
