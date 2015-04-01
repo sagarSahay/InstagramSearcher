@@ -15,19 +15,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2 col-md-offset-5">
-                <form name="myForm" class="form-inline " ng-submit="main.submit()">
-                    <div class="form-group ">
-                        <div class="input-group">
-                            <input name="queryValue"  type="text" ng-model="main.keyword" class="form-control" required />
-                        </div>
+            <div class="col-md-12 col-md-offset-5">
+                    <form name="myForm" class="form-inline " ng-submit="main.submit()">
+                        <div class="form-group ">
+                            <div class="input-group">
+                                <input name="queryValue"  type="text" ng-model="main.keyword" class="form-control" required />
+                            </div>
 
-                        <input class="btn btn-primary" type="submit" id="submit" value="Submit" />
-                    </div>
-                    <div class="center-block" ng-if="main.count>0 && main.keyword!='' ">
-                        <h2>We found {{main.count}} results for keyword {{main.keyword}}</h2>
-                    </div>
-                </form>
+                            <input class="btn btn-primary" type="submit" id="submit" value="Submit" />
+                        </div>
+                        <div class="col-md-12" ng-if="main.count>0 && main.keyword!='' ">
+                            <h2>We found {{main.count}} results for keyword {{main.keyword}}</h2>
+                        </div>
+                    </form>
+
             </div>
 
         </div>
