@@ -10,24 +10,29 @@
 <body ng-controller="InstagramController as main">
     <div class="container">
         <div class="row">
-            <img src="./images/ng-instagram.png" alt="Instagram Searcher">
+             <div class="col-md-2 col-md-offset-5">
+                <img src="./images/ng-instagram.png" alt="Instagram Searcher">
+            </div>
         </div>
-        <form name="myForm" ng-submit="main.submit()">
         <div class="row">
-            <input name="queryValue" class="col-md-4" type="text" ng-model="main.keyword" required />
-            <input class="col-md-4" type="submit" id="submit" value="Submit" />
-        </div>
-            <div class="row">
-                <h2>We found {{results.length}} results for keyword {{keyword}}</h2>
-            </div>
-            <div class="row">
-                <div ng-repeat="result in results">
+            <div class="col-md-2 col-md-offset-5">
+                <form name="myForm" class="form-inline " ng-submit="main.submit()">
+                    <div class="form-group ">
+                        <div class="input-group">
+                            <input name="queryValue"  type="text" ng-model="main.keyword" class="form-control" required />
+                        </div>
 
-                </div>
+                        <input class="btn btn-primary" type="submit" id="submit" value="Submit" />
+                    </div>
+                    <div class="center-block" ng-if="main.count>0 && main.keyword!='' ">
+                        <h2>We found {{main.count}} results for keyword {{main.keyword}}</h2>
+                    </div>
+                </form>
             </div>
-        </form>
+
+        </div>
         <div ng-repeat="result in main.data">
-            <iframe ng-src="{{main.trustSrc(result.link+'&output=embed')}}" frameborder="0" width="480" height="390">
+            <iframe class="col-xs-6 col-sm-3" ng-src="{{main.trustSrc(result.images.standard_resolution.url)}}" frameborder="0" width="480" height="390">
 
             </iframe>
         </div>

@@ -14,6 +14,7 @@ angular.module('InstagramApp',[])
         vm.submit=function(){
             InstagramService.get(vm.keyword).then(function (result) {
                 vm.data=result.data;
+                vm.count=result.data.length;
             }).catch(function (error) {
                 console.log(error);
             })
@@ -41,7 +42,7 @@ angular.module('InstagramApp',[])
                     deferred.resolve(result);
                 }).error(function(error) {
                     deferred.reject(error) ;
-            })
+            });
                 return deferred.promise;
             }
         }
