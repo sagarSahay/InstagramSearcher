@@ -24,7 +24,7 @@
 
                             <input class="btn btn-primary" type="submit" id="submit" value="Submit" />
                         </div>
-                        <div class="col-md-12" ng-if="main.count>0 && main.keyword!='' ">
+                        <div class="col-md-12" ng-if="main.display">
                             <h2>We found {{main.count}} results for keyword {{main.keyword}}</h2>
                         </div>
                     </form>
@@ -33,9 +33,10 @@
 
         </div>
         <div ng-repeat="result in main.data">
-            <iframe class="col-xs-6 col-sm-3" ng-src="{{main.trustSrc(result.images.standard_resolution.url)}}" frameborder="0" width="480" height="390">
+            <iframe class="col-xs-6 col-sm-3" ng-click="openLinkWindow(result.link)" name={{result.id}}  ng-src="{{main.trustSrc(result.images.standard_resolution.url)}}" frameborder="0">
 
             </iframe>
+
         </div>
     </div>
 </body>
